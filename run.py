@@ -46,10 +46,9 @@ def play_game():
 
     # variable for our word or words
     word = Word()
-    game_word = word.get_word()
 
     while True:
-        word.print_the_word(game_word)
+        word.print_the_word()
 
         user_guess()
         number_of_errors += 1
@@ -58,7 +57,7 @@ def play_game():
 
         print(f"number of tires {number_of_tries}")
         if number_of_errors > number_of_tries:
-            game_over('failed', game_word)
+            game_over('failed', word.game_word)
 
 
 def game_over(result, word):
