@@ -1,25 +1,26 @@
-{
-    actors : [
+""" Game data used for hangman """
+game_data = {
+    'actors': [
         'Tom Cruise'
     ],
-    
-    'places' : [
+
+    'places': [
         'London'
     ],
 
-    'movies' : [
+    'movies': [
         'Ghostbusters'
     ],
 
-    'songs' : [
+    'songs': [
         'Riverdance'
     ],
 
-    'books' : [
+    'books': [
         'Harry Potter and the Philosophers Stone'
     ],
 
-    'bands' : [
+    'bands': [
         'Oasis'
     ],
 }

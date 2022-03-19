@@ -1,3 +1,7 @@
+import random
+from game_data import game_data
+
+
 class Word:
     """This is the class for handling the words"""
 
@@ -8,8 +12,8 @@ class Word:
         """
         get the word for the user to use
         """
-        # open the json file and extract a random item
-        return 'Tom Cruise'
+        category = random.choice(list(game_data.values()))
+        return random.choice(category)
 
     def print_the_word(self):
         """
@@ -30,7 +34,7 @@ class Word:
                 word_output += guessed_letter + ' '
             else:
                 word_output += '_ '
-   
+
         print(word_output.strip() + "\n")
 
     def split_word_into_characters(self):
