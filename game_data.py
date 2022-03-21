@@ -17,7 +17,7 @@ game_data = {
     ],
 
     'books': [
-        'Harry Potter and the Philosophers Stone'
+        'Harry Potter'
     ],
 
     'bands': [

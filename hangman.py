@@ -18,11 +18,20 @@ class Hangman:
         # variable for our word or words
         self.word = Word()
 
+        # has the user won
+        self.has_won = False
+
     def play_game(self):
         """
         Game
         """
         while True:
+            self.has_won = self.word.all_letters_guessed_correctly(self.letters_used)
+
+            if self.has_won is True:
+                self.game_completed()
+                continue
+
             self.word.print_the_word(self.letters_used)
 
             guess = self.user_guess()
@@ -77,7 +86,7 @@ class Hangman:
         """
         Draws the hangman
         """
-        if (self.number_of_errors == 0):
+        if self.number_of_errors == 0:
             print(hangman_level[0])
         else:
             print(hangman_level[self.number_of_errors])
@@ -116,4 +125,13 @@ class Hangman:
 
     def reset_game(self):
         """ Reset the game """
-        self.word.get_word()
+        self.has_won = False
+        self.number_of_errors = 0
+        self.letters_used = []
+        self.word.reset()
+
+    def game_completed(self):
+        """ The user has won the game"""
+        print("Congratulations you have won the game")
+        input("Press enter to play again")
+        self.reset_game()

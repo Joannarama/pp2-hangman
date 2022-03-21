@@ -13,7 +13,6 @@ class Word:
         """
         get the word for the user to use
         """
-        return 'Oasis'
         category = random.choice(list(game_data.values()))
         return random.choice(category)
 
@@ -53,3 +52,32 @@ class Word:
         Take a word and split it into individual characters
         """
         return [char for char in self.game_word]
+
+    def all_letters_guessed_correctly(self, letters_used):
+        """ Check if the user has guessed all letters correctly """
+        word_split = self.split_word_into_characters()
+
+        # make all letters used lower case
+        # https://www.delftstack.com/howto/python/python-lowercase-list/
+        letters_used_lower_case = [used_letter.lower() for used_letter in letters_used]
+
+        # remove all white spaces in word split and set to lower case
+        # https://www.programiz.com/python-programming/methods/built-in/filter
+        word_split_no_spaces = list(filter(self.filter_white_space, word_split))
+        word_split_lower_case = [word_letter.lower() for word_letter in word_split_no_spaces]
+
+        # https://www.techbeamers.com/program-python-list-contains-elements/
+        # https://www.programiz.com/python-programming/methods/built-in/all
+        return all(item in letters_used_lower_case for item in word_split_lower_case)
+
+    def filter_white_space(self, letter):
+        """ Filter the white space from the string """
+        if letter == ' ':
+            return False
+        else:
+            return True
+
+    def reset(self):
+        """ Reset the word"""
+        self.game_word = self.get_word()
+        self.guess = ''
