@@ -57,23 +57,29 @@ class Hangman:
 
         guess = input("Guess a Letter: ")
 
+        # makes the guessed letter lower case to allow comparison against lower case word
         guess = guess.lower()
 
+        # ensure user choice is an alpha character and limited to one letter
         if self.validate_guess(guess) is False:
             print(
-                "You have entered an incorrect character, enter only letters"
+                "You have entered an incorrect character(s), enter only one letter"
                 )
             return False
         elif self.letter_already_used(guess):
+            # check if letter has already been used
             print("You have already used this letter")
             return False
         else:
+            # choice is correct, display letter in secret word
             print(f"The letter you guessed is {guess}")
 
             self.word.guess = guess
 
+            # add the letter to the array of letters used
             self.letters_used.append(guess)
 
+            # inform the user that their guess is correct or not
             if self.word.is_letter_in_word(guess) is False:
                 self.number_of_errors += 1
                 print(f"The letter {guess} is not in the word!")
@@ -86,6 +92,7 @@ class Hangman:
         """
         Draws the hangman
         """
+        # uses array from game_data.py to draw hangman character
         if self.number_of_errors == 0:
             print(hangman_level[0])
         else:
@@ -95,9 +102,12 @@ class Hangman:
         """
         The game over status for a user
         """
+        # notifies the user they have won
         if result == 'success':
             print("You win!")
             input("Press enter to try again")
+
+        #notifies the user they have failed    
         else:
             print("You lost!")
             print("The correct answer was: " + word)
@@ -109,7 +119,8 @@ class Hangman:
         """
         Validate the user input
         """
-        if guess.isalpha():
+        #ensures user inpur is alpha and only one character
+        if guess.isalpha() and len(guess) == 1:
             return True
         else:
             return False
@@ -125,6 +136,7 @@ class Hangman:
 
     def reset_game(self):
         """ Reset the game """
+        # resets the game parameters to to start point
         self.has_won = False
         self.number_of_errors = 0
         self.letters_used = []

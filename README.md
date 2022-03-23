@@ -1,3 +1,34 @@
+# Project Portfolio  - Python Essentials submission - Hangman Game
+
+Hangman101 is a Python terminal game, which runs on the Code Institute mock terminal on Heroku.
+The aim of the game is to try to guess all the letters of a secret word chosen at random by the computer. The user has a limited number of tries. If they fail to guess all the correct letters within the set number of tries, they will fail and they can play again. If they guesss the correct letters within the set number of tries, the user will have won!
+It's intended audience is anyone who wants a mental break or to decompress from a stressful programming situation! 
+
+## Repository
+[Github repository](https://github.com/Joannarama/the-Oracle)
+
+## Live site
+
+## Table of Contents
+
+- [User Experience (UX)](#user-experience)
+  - [User Stories](#user-stories)
+
+- [Features](#features)
+- [How to play](#how-to-play)
+- [Gameplay](#gameplay-area)
+
+- [Technologies used](#technologies-used)
+- [Languages](#languages-used)
+
+
+
+
+
+
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome Joannarama,
