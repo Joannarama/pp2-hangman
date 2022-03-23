@@ -98,6 +98,7 @@ class Hangman:
         else:
             print(hangman_level[self.number_of_errors])
 
+
     def game_over(self, result, word):
         """
         The game over status for a user
@@ -107,7 +108,7 @@ class Hangman:
             print("You win!")
             input("Press enter to try again")
 
-        #notifies the user they have failed    
+        # notifies the user they have failed    
         else:
             print("You lost!")
             print("The correct answer was: " + word)
