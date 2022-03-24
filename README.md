@@ -58,7 +58,7 @@ The objectives will be achieved by
 # **Planning**
 I created a flowchart in Lucid chart to help organise the structure of the game and my approach to it's development
 
-
+![planning flowchart](docs/images/flowchart.jpeg)
 
 # **Features**
 
@@ -178,10 +178,20 @@ The following are the steps taken to deploy to Heroku.
 
 ## ***Credits**
 
+[make all letters used lowercase](https://www.delftstack.com/howto/python/python-lowercase-list/)
 
+[remove all white spaces in word split and set to lower case](https://www.programiz.com/python-programming/methods/built-in/filter)
 
+[list contains elements](https://www.techbeamers.com/program-python-list-contains-elements/)
+[also:list contains elements](https://www.programiz.com/python-programming/methods/built-in/all)
 
+[limit inpu string character length](https://stackoverflow.com/questions/8761778/limiting-python-input-strings-to-certain-characters-and-lengths)
 
+[OOP tutorial](https://realpython.com/python3-object-oriented-programming/)
+
+Some initial inspiration videos/documentation
+[Hangman video](https://www.youtube.com/watch?v=m4nEnsavl6w)
+[sample code]()
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 

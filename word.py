@@ -58,7 +58,6 @@ class Word:
         word_split = self.split_word_into_characters()
 
         # make all letters used lower case
-        # https://www.delftstack.com/howto/python/python-lowercase-list/
         letters_used_lower_case = [used_letter.lower() for used_letter in letters_used]
 
         # remove all white spaces in word split and set to lower case
