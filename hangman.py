@@ -55,7 +55,7 @@ class Hangman:
         """
         self.word.guess = ''
 
-        guess = input("Guess a Letter: ")
+        guess = input("Guess a Letter: \n")
 
         # makes the guessed letter lower case to allow comparison against lower case word
         guess = guess.lower()
@@ -98,7 +98,6 @@ class Hangman:
         else:
             print(hangman_level[self.number_of_errors])
 
-
     def game_over(self, result, word):
         """
         The game over status for a user
@@ -120,7 +119,7 @@ class Hangman:
         """
         Validate the user input
         """
-        #ensures user inpur is alpha and only one character
+        # ensures user inpur is alpha and only one character
         if guess.isalpha() and len(guess) == 1:
             return True
         else:

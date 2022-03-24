@@ -33,7 +33,7 @@ class Game:
         """
         print("\nThe computer will select a secret word at random \nYou have 8 tries to guess all the correct letters! \nGood luck :)")
 
-        input("\nPress enter key to start")
+        input("\nPress enter key to start\n")
 
         self.hangman.play_game()
 
