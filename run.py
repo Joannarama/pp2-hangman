@@ -34,7 +34,7 @@ class Game:
         print("\nRULES")
         print("\nThe computer will select a secret word(s)")
         print("\nYou will see the number of letters you need to discover")
-        print("\nMake your guess and the computer will tell if its right/wrong")
+        print("\nMake a guess and the computer will tell if its right/wrong")
         print("\nGuess all the letters correctly before the hangman drops!\n")
         input("\nPress ENTER key to start\n\n")
 
