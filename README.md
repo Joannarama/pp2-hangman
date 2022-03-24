@@ -114,10 +114,21 @@ When the user has not guessed all letters correctly, they will have lost and can
 # **Data Model**
 ## **Object Oriented Programming using Classes**
 
-This program uses Object Oriented Programming and the following classes were developed:
-*word
-*hangman
-*game_data
+At the start of this project, anticipating that it would not be very extensive, I used a functional approach, creating functions in run.py. It quickly became apparent that the file was becoming large and unwieldy and difficult to read. Therefor I felt it would be beneficial to introduce a separation of concerns. 
+
+Using Object Oriented Programming, I created 3 classes. These are 
+* game - this manages the landing page and the rules
+* hangman - this controls the gameplay functionality
+* word - this manages the random selection of the word, prints the word/shows an underscore, checks if the letter is in the word etc. 
+
+# ***Libraries***
+This project did not require any external libraries and used build in Python library/module random found at 
+
+https://docs.python.org/3/library/random.html
+
+The purpose for this project was to randomly choose the word for the game from game_data.py using the random.choice function. 
+ 
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
