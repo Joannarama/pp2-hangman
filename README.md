@@ -114,7 +114,7 @@ When the user has not guessed all letters correctly, they will have lost and can
 # **Data Model**
 ## **Object Oriented Programming using Classes**
 
-At the start of this project, anticipating that it would not be very extensive, I used a functional approach, creating functions in run.py. It quickly became apparent that the file was becoming large and unwieldy and difficult to read. Therefor I felt it would be beneficial to introduce a separation of concerns. 
+At the start of this project, anticipating that it would not be very extensive, I used a functional approach, creating functions in run.py. It quickly became apparent that the file was becoming large and unwieldy and difficult to read. Therefore I felt it would be beneficial to introduce a separation of concerns. 
 
 Using Object Oriented Programming, I created 3 classes. These are 
 * game - this manages the landing page and the rules
@@ -126,8 +126,38 @@ This project did not require any external libraries and used build in Python lib
 
 https://docs.python.org/3/library/random.html
 
-The purpose for this project was to randomly choose the word for the game from game_data.py using the random.choice function. 
+The purpose of this for this project was to randomly choose the word for the game from game_data.py using the random.choice function. 
+
+# ***Other separation of concerns***
+
+The game data, i.e. the lists of 'secret' words and the hangman stages graphics, were quite long and took up a lot of space. As such, these were moved to their own file, game_data.py. 
  
+
+# **Testing**
+This project was tested iteratively throughout the build in the following ways. 
+
+* Testing the code in small chunks in the VS terminal to ensure that it was working as expected
+* Testing the game once deployed to Heroku and in subsequent deployments by playing it using the different functionality to test expected outcomes. 
+* Testing the user inputs thoroughly. Negative testing to ensure errors and notifications work as expected. 
+
+***PEP8 testing***
+I checked the code in the PEP8 vaildator. The following errors were returned
+
+
+* word.py - corrected trailing white space. 
+* run.py - no errors
+* hangman.py 
+  - Error: Line 29, line too long
+  - Fix: did not amend as code read poorly broken over 2 lines and game not affected
+* game_data.py 
+  - Error: blank line at end of file
+  - Fix: deleted blank line
+
+
+
+
+
+
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
