@@ -36,7 +36,7 @@ class Game:
         print("\nYou will see the number of letters you need to discover")
         print("\nMake your guess and the computer will tell if its right/wrong")
         print("\nGuess all the letters correctly before the hangman drops!\n")
-        input("\nPress enter key to start\n\n")
+        input("\nPress ENTER key to start\n\n")
 
         self.hangman.play_game()
 
