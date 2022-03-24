@@ -12,12 +12,12 @@ class Game:
         User selects an option to begin or see rules
         """
         print("Welcome to Hangman")
-        print("Please select option 1 or 2 to start")
+        print("\nPlease select option 1 or 2 to start")
 
-        print("1. Game Rules")
+        print("\n1. Game Rules")
         print("2. Play the Game")
 
-        choice = input("Press 1 or 2 and press enter: ")
+        choice = input("\nPress 1 or 2 and press enter: ")
 
         if choice == "1":
             self.game_rules()
@@ -31,9 +31,12 @@ class Game:
         """
         Game Rules
         """
-        print("\nThe computer will select a secret word at random \nYou have 8 tries to guess all the correct letters! \nGood luck :)")
-
-        input("\nPress enter key to start\n")
+        print("\nRULES")
+        print("\nThe computer will select a secret word(s)")
+        print("\nYou will see the number of letters you need to discover")
+        print("\nMake your guess and the computer will tell if its right/wrong")
+        print("\nGuess all the letters correctly before the hangman drops!\n")
+        input("\nPress enter key to start\n\n")
 
         self.hangman.play_game()
 

@@ -57,18 +57,18 @@ class Hangman:
 
         guess = input("Guess a Letter: \n")
 
-        # makes the guessed letter lower case to allow comparison against lower case word
+        # makes guessed letter lower case for comparison against lowercase word
         guess = guess.lower()
 
         # ensure user choice is an alpha character and limited to one letter
         if self.validate_guess(guess) is False:
             print(
-                "You have entered an incorrect character(s), enter only one letter"
+                "Incorrect character(s), enter only one letter"
                 )
             return False
         elif self.letter_already_used(guess):
             # check if letter has already been used
-            print("You have already used this letter")
+            print("\nYou have already used this letter")
             return False
         else:
             # choice is correct, display letter in secret word
@@ -104,14 +104,14 @@ class Hangman:
         """
         # notifies the user they have won
         if result == 'success':
-            print("You win!")
-            input("Press enter to try again")
+            print("\nYou win!")
+            input("\nPress enter to try again")
 
-        # notifies the user they have failed    
+        # notifies the user they have failed
         else:
-            print("You lost!")
-            print("The correct answer was: " + word)
-            input("Press enter to try again")
+            print("\nYou lost!")
+            print("\nThe correct answer was: " + word)
+            input("\nPress enter to try again")
             self.reset_game()
             self.play_game()
 
@@ -144,6 +144,6 @@ class Hangman:
 
     def game_completed(self):
         """ The user has won the game"""
-        print("Congratulations you have won the game")
-        input("Press enter to play again")
+        print("\nCongratulations you have won the game")
+        input("\nPress enter to play again")
         self.reset_game()

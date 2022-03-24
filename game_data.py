@@ -1,52 +1,52 @@
 """ Game data used for hangman """
 game_data = {
     'actors': [
-        'Tom Cruise'
-        'Ben Affleck'
-        'Jodie Foster'
-        'Meryl Streep'
+        'Tom Cruise',
+        'Ben Affleck',
+        'Jodie Foster',
+        'Meryl Streep',
         'Emma Watson'
     ],
 
     'places': [
-        'London'
-        'Dublin'
-        'Paris'
-        'New York'
-        'Beijing'
+        'London',
+        'Dublin',
+        'Paris',
+        'New York',
+        'Beijing',
     ],
 
     'movies': [
-        'Ghostbusters'
-        'Zoolander'
-        'Oceans Eleven'
-        'Batman'
-        'Sing'
+        'Ghostbusters',
+        'Zoolander',
+        'Oceans Eleven',
+        'Batman',
+        'Sing',
     ],
 
     'fruit': [
-        'banana'
-        'peache'
-        'apple'
-        'orange'
-        'coconut'
+        'banana',
+        'peach',
+        'apple',
+        'orange',
+        'coconut',
     ],
 
     'books': [
-        'Harry Potter'
-        'Dr Zhivago'
-        'The Hobbit'
-        'A Tale of Two Cities'
+        'Harry Potter',
+        'Dr Zhivago',
+        'The Hobbit',
+        'A Tale of Two Cities',
         'Anne Frank'
 
     ],
 
     'bands': [
-        'Oasis'
-        'Blur'
-        'Queen'
-        'The Beatles'
-        'The Rolling Stones'
+        'Oasis',
+        'Blur',
+        'Queen',
+        'The Beatles',
+        'The Rolling Stones',
     ],
 }
 
