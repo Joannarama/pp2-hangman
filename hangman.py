@@ -69,6 +69,7 @@ class Hangman:
 
     def print_header(self):
         """ Prints the heading section for the game"""
+        self.clear_screen()
         self.hangman_title()
         self.draw_hangman()
         self.word.print_the_word(self.letters_used)
