@@ -155,6 +155,29 @@ I checked the code in the PEP8 vaildator. The following errors were returned
 
 
 
+## ***Deployment to Heroku*** 
+The following are the steps taken to deploy to Heroku. 
+
+* Create an account in Heroku. 
+* Click on the 'New' button.
+* In the Heroku dashboard, click 'Create new app'
+* Then, create a unique name for the app
+* Select your region, Europe/USA
+* Click 'Create app'
+* Navigate to 'Settings' from the settings tab. 
+* Click the button labelled "Reveal Config Vars" and enter PORT for the key and 8000 as the Value and click the "add" button.
+* The next step will add buildpacks to the application. 
+* Click 'Add Buildpacks' and select Python and 'Save changes'
+* Add another build pack called node.js to handle the mock terminal code and click 'Save' again
+* Next navigate to the Deploy section from the deploy tab
+* In the Deployment Method section, select GitHub
+* Search for the GitHub repository name and click 'connect' when it has been correcly identified
+* Select the correct branch to deploy from, in this case 'main' and select 'Automatic deploys'
+* Click the 'View' button to navigate to the deployed link
+
+
+## ***Credits**
+
 
 
 
