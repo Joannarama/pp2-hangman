@@ -18,7 +18,12 @@ It's intended audience is anyone who wants a mental break or to decompress from 
   - [User Stories](#user-stories)
   - [Site Owner Objectives](#site-owner-objectives)
   - [How Objectives will be achieved](#how-the-objectives-will-be-achieved)
-  - [Features](#features)
+  
+- [Features](#features)
+  - [Landing page](#landing-page)
+  - [User selects 1](#user-selects-1)
+  - [User selects 2](#user-selects-2)
+  
 
 - [Planning](#planning)
 
