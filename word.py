@@ -1,3 +1,4 @@
+""" The word class """
 import random
 from game_data import game_data
 
@@ -36,7 +37,8 @@ class Word:
             else:
                 word_output += '_ '
 
-        print(word_output.strip() + "\n")
+        print(word_output.strip())
+        print("\n")
 
     def is_letter_in_word(self, guess):
         """ Check if a letter is in the game word """
@@ -58,16 +60,24 @@ class Word:
         word_split = self.split_word_into_characters()
 
         # make all letters used lower case
-        letters_used_lower_case = [used_letter.lower() for used_letter in letters_used]
+        letters_used_lower_case = (
+            [used_letter.lower() for used_letter in letters_used]
+        )
 
         # remove all white spaces in word split and set to lower case
         # https://www.programiz.com/python-programming/methods/built-in/filter
-        word_split_no_spaces = list(filter(self.filter_white_space, word_split))
-        word_split_lower_case = [word_letter.lower() for word_letter in word_split_no_spaces]
+        word_split_no_spaces = (
+            list(filter(self.filter_white_space, word_split))
+        )
+        word_split_lower_case = (
+            [word_letter.lower() for word_letter in word_split_no_spaces]
+        )
 
         # https://www.techbeamers.com/program-python-list-contains-elements/
         # https://www.programiz.com/python-programming/methods/built-in/all
-        return all(item in letters_used_lower_case for item in word_split_lower_case)
+        return all(
+            item in letters_used_lower_case for item in word_split_lower_case
+        )
 
     def filter_white_space(self, letter):
         """ Filter the white space from the string """

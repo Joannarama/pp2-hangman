@@ -229,3 +229,12 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+
+
+
+Hangman symbol taken from https://fsymbols.com/text-art/
+Searched how to colour text on https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal
+Created a new class file called bcolors.py and imported to each file
+
+Clear the interpeter screen https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console

@@ -1,4 +1,6 @@
+""" Run the application """
 from hangman import Hangman
+from bcolors import Bcolors
 
 
 class Game:
@@ -11,32 +13,47 @@ class Game:
         """
         User selects an option to begin or see rules
         """
-        print("Welcome to Hangman")
-        print("\nPlease select option 1 or 2 to start")
-
-        print("\n1. Game Rules")
+        self.hangman.hangman_title()
+        print("Please select option 1 or 2 to start")
+        print("\n")
+        print("1. Game Rules")
         print("2. Play the Game")
-
-        choice = input("\nPress 1 or 2 and press enter: ")
+        print("Press 1 or 2 and press enter: ")
+        choice = input("")
 
         if choice == "1":
+            self.hangman.clear_screen()
+            self.hangman.hangman_title()
             self.game_rules()
         elif choice == "2":
             self.hangman.play_game()
         else:
-            print("\nPlease make a valid selection: 1 or 2  \n")
+            self.hangman.clear_screen()
+            self.hangman.hangman_title()
+            print("Please make a valid selection: 1 or 2")
             self.start_game()
 
     def game_rules(self):
         """
         Game Rules
         """
-        print("\nRULES")
-        print("\nThe computer will select a secret word(s)")
-        print("\nYou will see the number of letters you need to discover")
-        print("\nMake a guess and the computer will tell if its right/wrong")
-        print("\nGuess all the letters correctly before the hangman drops!\n")
-        input("\nPress ENTER key to start\n\n")
+        print(f"{Bcolors.UNDERLINE}Rules{Bcolors.ENDC}")
+        print("\n")
+        print("The computer will select a secret word(s)")
+        print(
+            "You will see the number of letters you need to discover"
+        )
+        print(
+            "Make a guess and the computer will tell if its right/wrong"
+        )
+        print(
+            "Guess all the letters correctly before the hangman drops!"
+            )
+        print("\n")
+        print(
+            f"{Bcolors.OKBLUE}Press ENTER key to start{Bcolors.ENDC}"
+        )
+        input("")
 
         self.hangman.play_game()
 

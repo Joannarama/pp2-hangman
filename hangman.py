@@ -1,5 +1,8 @@
+""" The main hangman page """
+import os
 from word import Word
 from game_data import hangman_level
+from bcolors import Bcolors
 
 
 class Hangman:
@@ -21,33 +24,54 @@ class Hangman:
         # has the user won
         self.has_won = False
 
+        # game message
+        self.message = ''
+        self.outcome = ''
+
     def play_game(self):
         """
         Game
         """
+        self.print_header()
+       
         while True:
-            self.has_won = self.word.all_letters_guessed_correctly(self.letters_used)
+
+            self.has_won = (
+                self.word.all_letters_guessed_correctly(self.letters_used)
+            )
 
             if self.has_won is True:
                 self.game_completed()
                 continue
 
-            self.word.print_the_word(self.letters_used)
+            self.user_guess()
 
-            guess = self.user_guess()
+            self.print_header()
 
-            if guess is not False:
-                self.draw_hangman()
+            tries_left = self.number_of_tries - self.number_of_errors
 
-                tries_left = self.number_of_tries - self.number_of_errors
+            print(f"Number of tries left: {tries_left}")
 
-                print(f"number of tries left: {tries_left}")
+            letters_used_string = ' '.join(map(str, self.letters_used))
+            print(f"The letters used {letters_used_string}")
 
-                letters_used_string = ' '.join(map(str, self.letters_used))
-                print(f"The letters used {letters_used_string}")
+            if tries_left == 0:
+                self.game_over('failed', self.word.game_word)
+            
+            if len(self.message) > 0:
+                print(self.message)
+            
+            if len(self.outcome) > 0:
+                print(self.outcome)
 
-                if tries_left == 0:
-                    self.game_over('failed', self.word.game_word)
+            self.message = ''
+            self.outcome = ''
+
+    def print_header(self):
+        """ Prints the heading section for the game"""
+        self.hangman_title()
+        self.draw_hangman()
+        self.word.print_the_word(self.letters_used)
 
     def user_guess(self):
         """
@@ -55,24 +79,32 @@ class Hangman:
         """
         self.word.guess = ''
 
-        guess = input("Guess a Letter: \n")
-
+        print("Guess a Letter:")
+        guess = input("")
         # makes guessed letter lower case for comparison against lowercase word
         guess = guess.lower()
 
         # ensure user choice is an alpha character and limited to one letter
         if self.validate_guess(guess) is False:
-            print(
-                "Incorrect character(s), enter only one letter"
-                )
+            self.message = (
+                Bcolors.WARNING +
+                "Incorrect character(s), enter only one letter" +
+                Bcolors.ENDC
+            )
             return False
         elif self.letter_already_used(guess):
             # check if letter has already been used
-            print("\nYou have already used this letter")
+            self.message = (
+                Bcolors.WARNING + "You have already used this letter"
+                + Bcolors.ENDC
+            )
             return False
         else:
             # choice is correct, display letter in secret word
-            print(f"The letter you guessed is {guess}")
+            self.message = (
+                Bcolors.WARNING + "The letter you guessed is " + guess
+                + Bcolors.ENDC
+            )
 
             self.word.guess = guess
 
@@ -82,9 +114,17 @@ class Hangman:
             # inform the user that their guess is correct or not
             if self.word.is_letter_in_word(guess) is False:
                 self.number_of_errors += 1
-                print(f"The letter {guess} is not in the word!")
+                self.outcome = (
+                    Bcolors.FAIL +
+                    "The letter " + guess + " is not in the word!" +
+                    Bcolors.ENDC
+                )
             else:
-                print(f"The letter {guess} is in the word!")
+                self.outcome = (
+                    Bcolors.OKGREEN +
+                    "The letter " + guess + " is in the word!" +
+                    Bcolors.ENDC
+                )
 
             return guess
 
@@ -102,16 +142,25 @@ class Hangman:
         """
         The game over status for a user
         """
+        self.clear_screen()
+        self.hangman_title()
         # notifies the user they have won
         if result == 'success':
-            print("\nYou win!")
-            input("\nPress enter to try again")
+            print(f"{Bcolors.OKGREEN}You win!{Bcolors.ENDC}")
+            print("\n")
+            print("Press enter to try again")
+            input("")
+            self.reset_game()
+            self.play_game()
 
         # notifies the user they have failed
         else:
-            print("\nYou lost!")
-            print("\nThe correct answer was: " + word)
-            input("\nPress enter to try again")
+            print(f"{Bcolors.FAIL}You lost!{Bcolors.ENDC}")
+            print("\n")
+            print(f"{Bcolors.FAIL}The correct answer was {word}{Bcolors.ENDC}")
+            print("\n")
+            print("Press enter to try again")
+            input("")
             self.reset_game()
             self.play_game()
 
@@ -144,6 +193,23 @@ class Hangman:
 
     def game_completed(self):
         """ The user has won the game"""
-        print("\nCongratulations you have won the game")
-        input("\nPress enter to play again")
+        self.clear_screen()
+        self.hangman_title()
+        message = "Congratulations you have won the game"
+        print(f"{Bcolors.BOLD}{message}{Bcolors.ENDC}")
+        print("\n")
+        print("Press enter to play again")
+        input("")
         self.reset_game()
+        self.play_game()
+
+    def hangman_title(self):
+        """Print the hangman title"""
+        print("\n")
+        header_text = Bcolors.HEADER + "Ⓗ  ⓐ  ⓝ  ⓖ  ⓜ  ⓐ  ⓝ" + Bcolors.ENDC
+        print(header_text)
+        print("\n")
+
+    def clear_screen(self):
+        """ Clear the terminal screen"""
+        os.system('cls' if os.name == 'nt' else 'clear')
