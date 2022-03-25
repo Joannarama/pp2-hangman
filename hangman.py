@@ -33,7 +33,7 @@ class Hangman:
         Game
         """
         self.print_header()
-       
+
         while True:
 
             self.has_won = (
@@ -57,10 +57,10 @@ class Hangman:
 
             if tries_left == 0:
                 self.game_over('failed', self.word.game_word)
-            
+
             if len(self.message) > 0:
                 print(self.message)
-            
+
             if len(self.outcome) > 0:
                 print(self.outcome)
 

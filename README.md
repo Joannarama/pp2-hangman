@@ -23,20 +23,23 @@ It's intended audience is anyone who wants a mental break or to decompress from 
   - [Landing page](#landing-page)
   - [User selects 1](#user-selects-1)
   - [User selects 2](#user-selects-2)
-  
+  - [user incorrect letter](#user-chooses-an-incorrect-letter)
+  - [user correct letter](#user-chooses-a-correct-letter)
+- [errors and notifications](#errors-and-notifications)
+  -[Errors](#errors)
+  - [Notifications](#notifications)
 
-- [Planning](#planning)
+- [Data Model](#data-model)
+  - [OOP using classes](#object-oriented-programming-using-classes) 
+  - [Libraries](#libraries)
+  - [Separation of Concerns](#other-separation-of-concerns)
 
-- [Features](#features)
-  -[Landing Page](#landing-page)
+- [Testing](#testing)
+  - [Bugs and fixes](#bugs-and-fixes)
 
+- [Deployment to Heroku](#deployment-to-heroku)
 
-- [How to play](#how-to-play)
-- [Gameplay](#gameplay-area)
-
-- [Technologies used](#technologies-used)
-- [Languages](#languages-used)
-
+- [Credits](#credits)
 
 
 
@@ -45,7 +48,7 @@ It's intended audience is anyone who wants a mental break or to decompress from 
 ## ***User Stories***
 * As a user I want to quickly and easily understand how to play the game
 * As a user I want to have a positive response to my interaction with the game
-* As a user to have a leisurely engagement with a fun game
+* As a user I want to have a leisurely engagement with a fun game
 
 ## ***Site Owner Objectives***
 * As a site owner, I want the user to play an enjoyable game
@@ -58,7 +61,7 @@ The objectives will be achieved by
 * Indicating what action the user must take at each step
 * Notifying the user if they have made an error
 * Counting down the tries remaining for the user
-* Congratulate them if they have won or encourage to play again if they lost
+* Congratulate them if they have won or encourage to play again if they have lost
 
 # **Planning**
 I created a flowchart in Lucid chart to help organise the structure of the game and my approach to it's development
@@ -92,12 +95,14 @@ When the user selects choice 2, the game begins. The user is shown the 'secret' 
 
 If the user selects an incorrect letter, their tries are reduced by 1, the hangman graphic draws one stage and the letter they have tried is added to the letters used array:
 
-![play the game](docs/images/gameplay.jpg)
+![play the game](docs/images/incorrect_letter.jpg)
 
 ### User chooses a correct letter
 
 when the user chooses a correct letter, that letter appears in it's place in the word. 
 Correct uppercase letters render where they appear in the word, for example, if the user selects the letter 'b' and the secret workd is 'Batman', the letter 'b' will appear in uppercase. 
+
+![correct letter chosen](docs/images/correct_letter.jpg)
 
 ## ***Errors and notifications***
 
@@ -114,24 +119,33 @@ When the user is successful, they are notified that they have won and can play a
 
 When the user has not guessed all letters correctly, they will have lost and can play again:
 
-![player has lost](docs/images/lost.jpg)
+![player has lost](docs/images/lost.JPG)
 
 # **Data Model**
-## **Object Oriented Programming using Classes**
+## ***Object Oriented Programming using Classes***
 
 At the start of this project, anticipating that it would not be very extensive, I used a functional approach, creating functions in run.py. It quickly became apparent that the file was becoming large and unwieldy and difficult to read. Therefore I felt it would be beneficial to introduce a separation of concerns. 
 
-Using Object Oriented Programming, I created 3 classes. These are 
+Using Object Oriented Programming, I created 4 classes. These are 
 * game - this manages the landing page and the rules
 * hangman - this controls the gameplay functionality
 * word - this manages the random selection of the word, prints the word/shows an underscore, checks if the letter is in the word etc. 
+* bcolors.py - used to output different coloured text for errors/notifications etc in the terminal which creates definition and makes it more readable and easier to interact with.
 
 # ***Libraries***
-This project did not require any external libraries and used build in Python library/module random found at 
+This project did not require any external libraries. It uses two built in Python library/modules random found at 
 
+* random - a psuedo-random number generator
 https://docs.python.org/3/library/random.html
 
 The purpose of this for this project was to randomly choose the word for the game from game_data.py using the random.choice function. 
+
+* os - 
+[reference:clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
+
+Uses os.system to run a command. On windows machined the cls command clears the screen and on Linux the clear command is run. This name determines which system is being used.
+
+This is used to clear data using from previous guesses which is no longer required which keeps a clean and legible apparance
 
 # ***Other separation of concerns***
 
@@ -145,22 +159,50 @@ This project was tested iteratively throughout the build in the following ways.
 * Testing the game once deployed to Heroku and in subsequent deployments by playing it using the different functionality to test expected outcomes. 
 * Testing the user inputs thoroughly. Negative testing to ensure errors and notifications work as expected. 
 
+# ***Bugs and fixes***
+
+During the development process I encountered the following bugs and implemented fixes
+
+**Bug**
+When testing it was discovered that you could add to or more characters and the game continued to work.
+
+**Fix**
+The fix was to test for the length of the string entered using the len() function.
+
+**Bug**
+When adding some styling to the terminal which included clearing the terminal and printing the hangman logo and other game play elements some of the messaging was disappearing. The issue was that the messaging was printed to the screen and then cleared on the next loop of the game. 
+
+**Fix**
+The fix was to move the messaging to two new variables self.message and self.output and print these variables in the game play loop.
+
+**Bug**
+When the game was one or lost, and restarted, the word wasn’t updated to a new word.
+
+**Fix**
+The fix was to add a new method to the word class called reset
+
+
+
 ***PEP8 testing***
 I checked the code in the PEP8 vaildator. The following errors were returned
 
 
-* word.py - corrected trailing white space. 
+* word.py - corrected trailing white space and blank lines 
 * run.py - no errors
-* hangman.py 
-  - Error: Line 29, line too long
-  - Fix: did not amend as code read poorly broken over 2 lines and game not affected
+
+* In hangman.py the following error occured a number of times:
+**Error: Line 29, line too long**
+
+**Fix**
+These errors were fixed by using parenthesise around these lines which allowed me to split the text into multiple lines and this resolved the issue. 
+
 * game_data.py 
   - Error: blank line at end of file
   - Fix: deleted blank line
 
 
 
-## ***Deployment to Heroku*** 
+## **Deployment to Heroku**
 The following are the steps taken to deploy to Heroku. 
 
 * Create an account in Heroku. 
@@ -181,7 +223,7 @@ The following are the steps taken to deploy to Heroku.
 * Click the 'View' button to navigate to the deployed link
 
 
-## ***Credits**
+## **Credits**
 
 [make all letters used lowercase](https://www.delftstack.com/howto/python/python-lowercase-list/)
 
@@ -190,51 +232,25 @@ The following are the steps taken to deploy to Heroku.
 [list contains elements](https://www.techbeamers.com/program-python-list-contains-elements/)
 [also:list contains elements](https://www.programiz.com/python-programming/methods/built-in/all)
 
-[limit inpu string character length](https://stackoverflow.com/questions/8761778/limiting-python-input-strings-to-certain-characters-and-lengths)
+[limit input string character length](https://stackoverflow.com/questions/8761778/limiting-python-input-strings-to-certain-characters-and-lengths)
 
 [OOP tutorial](https://realpython.com/python3-object-oriented-programming/)
 
-Some initial inspiration videos/documentation
 [Hangman video](https://www.youtube.com/watch?v=m4nEnsavl6w)
-[sample code]()
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome Joannarama,
+![Hangman Header image taken from](https://fsymbols.com/text-art/)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![how to color the text](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal)
 
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+![Clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
 
 
+## **Thank You**
 
+Thanks to facilitator Kasia and my class group for support and help with this project. 
 
-Hangman symbol taken from https://fsymbols.com/text-art/
-Searched how to colour text on https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal
-Created a new class file called bcolors.py and imported to each file
+Thanks to the Code Institute for the material, direction and support! 
 
-Clear the interpeter screen https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console
+Have a great day :)
