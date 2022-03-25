@@ -8,9 +8,10 @@ The aim of the game is to try to guess all the letters of a secret word chosen a
 It's intended audience is anyone who wants a mental break or to decompress from a stressful programming situation! 
 
 ## Repository
-[Github repository](https://github.com/Joannarama/the-Oracle)
+[Github repository](https://github.com/Joannarama/pp2-hangman)
 
 ## Live site
+[Live Site](https://pp3-classic-hangman.herokuapp.com/)
 
 ## Table of Contents
 
@@ -23,9 +24,9 @@ It's intended audience is anyone who wants a mental break or to decompress from 
   - [Landing page](#landing-page)
   - [User selects 1](#user-selects-1)
   - [User selects 2](#user-selects-2)
-  - [user incorrect letter](#user-chooses-an-incorrect-letter)
-  - [user correct letter](#user-chooses-a-correct-letter)
-- [errors and notifications](#errors-and-notifications)
+  - [User incorrect letter](#user-chooses-an-incorrect-letter)
+  - [User correct letter](#user-chooses-a-correct-letter)
+- [Errors and notifications](#errors-and-notifications)
   -[Errors](#errors)
   - [Notifications](#notifications)
 
@@ -133,15 +134,14 @@ Using Object Oriented Programming, I created 4 classes. These are
 * bcolors.py - used to output different coloured text for errors/notifications etc in the terminal which creates definition and makes it more readable and easier to interact with.
 
 # ***Libraries***
-This project did not require any external libraries. It uses two built in Python library/modules random found at 
+This project did not require any external libraries. It uses two built in Python library/modules:
 
-* random - a psuedo-random number generator
-https://docs.python.org/3/library/random.html
+* random - [a psuedo-random number generator](https://docs.python.org/3/library/random.html)
 
 The purpose of this for this project was to randomly choose the word for the game from game_data.py using the random.choice function. 
 
 * os - 
-[reference:clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
+[clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
 
 Uses os.system to run a command. On windows machined the cls command clears the screen and on Linux the clear command is run. This name determines which system is being used.
 
@@ -191,9 +191,9 @@ I checked the code in the PEP8 vaildator. The following errors were returned
 * run.py - no errors
 
 * In hangman.py the following error occured a number of times:
-**Error: Line 29, line too long**
+- **Error: Line 29, line too long**
 
-**Fix**
+- **Fix**
 These errors were fixed by using parenthesise around these lines which allowed me to split the text into multiple lines and this resolved the issue. 
 
 * game_data.py 
@@ -225,26 +225,24 @@ The following are the steps taken to deploy to Heroku.
 
 ## **Credits**
 
-[make all letters used lowercase](https://www.delftstack.com/howto/python/python-lowercase-list/)
+[Make all letters used lowercase](https://www.delftstack.com/howto/python/python-lowercase-list/)
 
-[remove all white spaces in word split and set to lower case](https://www.programiz.com/python-programming/methods/built-in/filter)
+[Remove all white spaces in word split and set to lower case](https://www.programiz.com/python-programming/methods/built-in/filter)
 
-[list contains elements](https://www.techbeamers.com/program-python-list-contains-elements/)
+[List contains elements](https://www.techbeamers.com/program-python-list-contains-elements/)
 [also:list contains elements](https://www.programiz.com/python-programming/methods/built-in/all)
 
-[limit input string character length](https://stackoverflow.com/questions/8761778/limiting-python-input-strings-to-certain-characters-and-lengths)
+[Limit input string character length](https://stackoverflow.com/questions/8761778/limiting-python-input-strings-to-certain-characters-and-lengths)
 
 [OOP tutorial](https://realpython.com/python3-object-oriented-programming/)
 
 [Hangman video](https://www.youtube.com/watch?v=m4nEnsavl6w)
 
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+[Hangman Header image taken from](https://fsymbols.com/text-art/)
 
-![Hangman Header image taken from](https://fsymbols.com/text-art/)
+[How to color the text](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal)
 
-![how to color the text](https://stackoverflow.com/questions/287871/how-to-print-colored-text-to-the-terminal)
-
-![Clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
+[Clear console](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console)
 
 
 ## **Thank You**
